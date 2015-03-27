@@ -10,6 +10,17 @@ CREATE DATABASE PhoneRecords;
 -- Now use the database PhoneRecords
 USE PhoneRecords;
 
+-- Drop tables if they exist
+
+DROP TABLE IF EXISTS Division;
+DROP TABLE IF EXISTS Customer;
+DROP TABLE IF EXISTS Employee;
+DROP TABLE IF EXISTS Contact;
+DROP TABLE IF EXISTS PersonalContact;
+DROP TABLE IF EXISTS Calls;
+DROP TABLE IF EXISTS Visits;
+
+
 -- Create table Division
 CREATE TABLE Division (
 DivisionId INT(11) NOT NULL AUTO_INCREMENT,
