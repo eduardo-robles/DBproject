@@ -52,7 +52,7 @@ CREATE TABLE Employee (
 employeeId INT(11) NOT NULL AUTO_INCREMENT,
 fname VARCHAR(25) NOT NULL,
 lname VARCHAR(25) NOT NULL,
-title VARCHAR(25) NOT NULL,
+title VARCHAR(10) NOT NULL,
 email VARCHAR(30) NOT NULL,
 phoneNum INT(15) NOT NULL,
 address VARCHAR(50) NOT NULL,
@@ -72,17 +72,17 @@ FOREIGN KEY (phoneNum) REFERENCES Contact(phoneNum)
 
 -- Create table Calls
 CREATE TABLE Calls (
-startTime INT(5) NOT NULL,
-endTime INT(5) NOT NULL,
-priceRate INT(7) NOT NULL,
+startTime TIME NOT NULL,
+endTime TIME NOT NULL,
+priceRate FLOAT(11) NOT NULL,
 employeeId INT(11),
 FOREIGN KEY (employeeId) REFERENCES Employee(employeeId)
 )ENGINE=InnoDB;
 
 -- Create table Visits
 CREATE TABLE Visits (
-departureDate INT(10) NOT NULL,
-returnDate  INT(10) NOT NULL,
+departureDate DATE NOT NULL,
+returnDate  DATE NOT NULL,
 employeeId INT(11),
 FOREIGN KEY (employeeId) REFERENCES Employee(employeeId)
 )ENGINE=InnoDB;
@@ -157,27 +157,27 @@ VALUES ('Donald', 'Chamberlin');
 
 -- INSERT TO CALLS
 INSERT INTO Calls (startTime, endTime, priceRate)
-VALUES ('900','915','5.00');
+VALUES ('09:00:00','09:15:00','5.00');
 
 INSERT INTO Calls (startTime, endTime, priceRate)
-VALUES ('200','500','9.00');
+VALUES ('02:00:00','05:48:00','9.00');
 
 INSERT INTO Calls (startTime, endTime, priceRate)
-VALUES ('100','216','3.00');
+VALUES ('01:00:00','02:16:12','3.00');
 
 INSERT INTO Calls (startTime, endTime, priceRate)
-VALUES ('300','325','8.00');
+VALUES ('03:00:23','03:25:00','8.00');
 
 
 -- INSERT TO VISITS
 INSERT INTO Visits (departureDate, returnDate)
-VALUES ('010115', '010515');
+VALUES ('2015-11-01', '2015-11-02');
 
 INSERT INTO Visits (departureDate, returnDate)
-VALUES ('022815', '030115');
+VALUES ('2015-03-20', '2015-03-23');
 
 INSERT INTO Visits (departureDate, returnDate)
-VALUES ('090415', '091015');
+VALUES ('2015-08-04', '2015-08-12');
 
 INSERT INTO Visits (departureDate, returnDate)
-VALUES ('071015', '080115');
+VALUES ('2015-09-03', '2015-09-10');
