@@ -47,12 +47,13 @@ FOREIGN KEY (DivisionId) REFERENCES Division(DivisionId),
 FOREIGN KEY (phoneNum) REFERENCES Contact(phoneNum)
 )ENGINE=InnoDB;
 
+
 -- Create table Employee
 CREATE TABLE Employee (
 employeeId INT(11) NOT NULL AUTO_INCREMENT,
 fname VARCHAR(25) NOT NULL,
 lname VARCHAR(25) NOT NULL,
-title VARCHAR(10) NOT NULL,
+title VARCHAR(20) NOT NULL,
 email VARCHAR(30) NOT NULL,
 phoneNum INT(15) NOT NULL,
 address VARCHAR(50) NOT NULL,
@@ -70,13 +71,20 @@ PRIMARY KEY(PersonalId),
 FOREIGN KEY (phoneNum) REFERENCES Contact(phoneNum)
 )ENGINE=InnoDB;
 
+
+-- please note that calls to contacts can be made up of either customer or personal contact, 
+-- or neither. the phase 1 portion shows this requirement and necessity for price rate.
+
 -- Create table Calls
 CREATE TABLE Calls (
 startTime TIME NOT NULL,
 endTime TIME NOT NULL,
 priceRate FLOAT(11) NOT NULL,
 employeeId INT(11),
-FOREIGN KEY (employeeId) REFERENCES Employee(employeeId)
+phoneNum INT(15),
+PRIMARY KEY(startTime),
+FOREIGN KEY (employeeId) REFERENCES Employee(employeeId),
+FOREIGN KEY (phoneNum) REFERENCES Contact(phoneNum)
 )ENGINE=InnoDB;
 
 -- Create table Visits
@@ -84,100 +92,9 @@ CREATE TABLE Visits (
 departureDate DATE NOT NULL,
 returnDate  DATE NOT NULL,
 employeeId INT(11),
-FOREIGN KEY (employeeId) REFERENCES Employee(employeeId)
+customerId INT(11),
+PRIMARY KEY(departureDate),
+FOREIGN KEY (employeeId) REFERENCES Employee(employeeId),
+FOREIGN KEY (customerId) REFERENCES Customer(customerId)
 )ENGINE=InnoDB;
 
-
--- INSERT TO DIVISION
-INSERT INTO Division (address)
-VALUES ('321 Some Street, Anywhere, USA');
-
-INSERT INTO Division (address)
-VALUES ('456 Street, Anywhere, USA');
-
-INSERT INTO Division (address)
-VALUES ('684 Some Street, TEXAS, USA');
-
-INSERT INTO Division (address)
-VALUES ('321 Some Ave., Delaware, USA');
-
--- INSERT TO CONTACT
-INSERT INTO Contact (phoneNum)
-VALUES ('433');
-
-INSERT INTO Contact (phoneNum)
-VALUES ('654');
-
-INSERT INTO Contact (phoneNum)
-VALUES ('754');
-
-INSERT INTO Contact (phoneNum)
-VALUES ('456');
-
--- INSERT TO CUSTOMER
-INSERT INTO Customer (fname, lname, address)
-VALUES ('Magaret', 'Hamilton', '123 Nasa Ln, Cape Canaveral, Florida USA');
-
-INSERT INTO Customer (fname, lname, address)
-VALUES ('Marie', 'Curie', '744 Xray Ave., Cape Canaveral, Florida USA');
- 
-INSERT INTO Customer (fname, lname, address)
-VALUES ('Alan', 'Turing', '001 Enigma, Cape Canaveral, Florida USA');
- 
-INSERT INTO Customer (fname, lname, address)
-VALUES ('Eric', 'Raymond', '345 Cathedral, Cape Canaveral, Florida USA');
-
--- INSERT TO EMPLOYEE
-
-INSERT INTO Employee (fName, lName, title, email, phoneNum, address)
-VALUES ('Grace', 'Hopper', 'General', 'gh@example.com', '956', '123 Any Street. Somewhere, USA');
-
-INSERT INTO Employee (fName, lName, title, email, phoneNum, address)
-VALUES ('Mary', 'Shelley', 'Head Writer', 'ms@example.com', '454', '4876 Street. Somewhere, USA');
-
-INSERT INTO Employee (fName, lName, title, email, phoneNum, address)
-VALUES ('Jane', 'Austen', 'Senior Editor', 'ja@example.com', '556', '45465 Any Ave. Somewhere, USA');
- 
-INSERT INTO Employee (fName, lName, title, email, phoneNum, address)
-VALUES ('Albert', 'Einstein', 'Physicist', 'ae@example.com', '986', '367 Street Bld. Somewhere, USA');
- 
-
--- INSERT TO PERSONALCONTACT
-INSERT INTO PersonalContact (fName, lName)
-VALUES ('Ada', 'Lovelace');
- 
-INSERT INTO PersonalContact (fName, lName)
-VALUES ('Linus', 'Torvalds');
- 
-INSERT INTO PersonalContact (fName, lName)
-VALUES ('Richard', 'Stallman');
-
-INSERT INTO PersonalContact (fName, lName)
-VALUES ('Donald', 'Chamberlin');
-
--- INSERT TO CALLS
-INSERT INTO Calls (startTime, endTime, priceRate)
-VALUES ('09:00:00','09:15:00','5.00');
-
-INSERT INTO Calls (startTime, endTime, priceRate)
-VALUES ('02:00:00','05:48:00','9.00');
-
-INSERT INTO Calls (startTime, endTime, priceRate)
-VALUES ('01:00:00','02:16:12','3.00');
-
-INSERT INTO Calls (startTime, endTime, priceRate)
-VALUES ('03:00:23','03:25:00','8.00');
-
-
--- INSERT TO VISITS
-INSERT INTO Visits (departureDate, returnDate)
-VALUES ('2015-11-01', '2015-11-02');
-
-INSERT INTO Visits (departureDate, returnDate)
-VALUES ('2015-03-20', '2015-03-23');
-
-INSERT INTO Visits (departureDate, returnDate)
-VALUES ('2015-08-04', '2015-08-12');
-
-INSERT INTO Visits (departureDate, returnDate)
-VALUES ('2015-09-03', '2015-09-10');
