@@ -13,9 +13,9 @@ USE PhoneRecords;
 -- Drop tables if they exist
 
 DROP TABLE IF EXISTS Division;
+DROP TABLE IF EXISTS Contact;
 DROP TABLE IF EXISTS Customer;
 DROP TABLE IF EXISTS Employee;
-DROP TABLE IF EXISTS Contact;
 DROP TABLE IF EXISTS PersonalContact;
 DROP TABLE IF EXISTS Calls;
 DROP TABLE IF EXISTS Visits;
@@ -80,9 +80,9 @@ CREATE TABLE Calls (
 startTime TIME NOT NULL,
 endTime TIME NOT NULL,
 priceRate FLOAT(11) NOT NULL,
-employeeId INT(11),
-phoneNum INT(15),
-PRIMARY KEY(startTime),
+employeeId INT(11) NOT NULL,
+phoneNum INT(15) NOT NULL,
+PRIMARY KEY(startTime, employeeId),
 FOREIGN KEY (employeeId) REFERENCES Employee(employeeId),
 FOREIGN KEY (phoneNum) REFERENCES Contact(phoneNum)
 )ENGINE=InnoDB;

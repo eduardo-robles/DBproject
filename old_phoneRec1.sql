@@ -46,8 +46,10 @@ fname VARCHAR(25) NOT NULL,
 lname VARCHAR(25) NOT NULL,
 address VARCHAR(50) NOT NULL,
 DivisionId INT(11),
-PRIMARY KEY(DivisionId),
-FOREIGN KEY (DivisionId) REFERENCES Division(DivisionId)
+ContactId INT(11),
+phoneNum INT(15),
+PRIMARY KEY(DivisionId)
+-- FOREIGN KEY (DivisionId) REFERENCES Division(DivisionId)
 ON UPDATE CASCADE
 )ENGINE=InnoDB;
 
@@ -57,8 +59,10 @@ CREATE TABLE PersonalContact (
 fname VARCHAR(25) NOT NULL,
 lname VARCHAR(25) NOT NULL,
 ContactId INT(11),
-PRIMARY KEY(ContactId),
-FOREIGN KEY (ContactId) REFERENCES Contact(ContactId)
+ContactId INT(11),
+phoneNum INT(15),
+PRIMARY KEY(ContactId)
+-- FOREIGN KEY (ContactId) REFERENCES Contact(ContactId)
 ON UPDATE CASCADE
 )ENGINE=InnoDB;
 
