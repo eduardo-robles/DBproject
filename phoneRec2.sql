@@ -80,8 +80,8 @@ CREATE TABLE Calls (
 startTime TIME NOT NULL,
 endTime TIME NOT NULL,
 priceRate FLOAT(11) NOT NULL,
-employeeId INT(11) NOT NULL,
-phoneNum INT(15) NOT NULL,
+employeeId INT(11),
+phoneNum INT(15),
 PRIMARY KEY(startTime, employeeId),
 FOREIGN KEY (employeeId) REFERENCES Employee(employeeId),
 FOREIGN KEY (phoneNum) REFERENCES Contact(phoneNum)
