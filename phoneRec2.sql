@@ -36,13 +36,12 @@ PRIMARY KEY(phoneNum)
 
 -- Create table Customer
 CREATE TABLE Customer (
-CustomerId INT(11) NOT NULL AUTO_INCREMENT,
 fname VARCHAR(25) NOT NULL,
 lname VARCHAR(25) NOT NULL,
 address VARCHAR(50) NOT NULL,
 DivisionId INT(11),
 phoneNum INT(15),
-PRIMARY KEY(CustomerId),
+PRIMARY KEY(phoneNum),
 FOREIGN KEY (DivisionId) REFERENCES Division(DivisionId),
 FOREIGN KEY (phoneNum) REFERENCES Contact(phoneNum)
 )ENGINE=InnoDB;
@@ -57,7 +56,7 @@ title VARCHAR(20) NOT NULL,
 email VARCHAR(30) NOT NULL,
 phoneNum INT(15) NOT NULL,
 address VARCHAR(50) NOT NULL,
-DivisionId INT (11)
+DivisionId INT (11),
 PRIMARY KEY(employeeId),
 FOREIGN KEY (DivisionId) REFERENCES Division(DivisionId)
 )ENGINE=InnoDB;
@@ -65,12 +64,13 @@ FOREIGN KEY (DivisionId) REFERENCES Division(DivisionId)
 
 -- Create table PersonalContact
 CREATE TABLE PersonalContact (
-PersonalId INT (11) NOT NULL AUTO_INCREMENT,
 fname VARCHAR(25) NOT NULL,
 lname VARCHAR(25) NOT NULL,
 phoneNum INT(15),
-PRIMARY KEY(PersonalId),
-FOREIGN KEY (phoneNum) REFERENCES Contact(phoneNum)
+employeeId INT(11),
+PRIMARY KEY(phoneNum),
+FOREIGN KEY (phoneNum) REFERENCES Contact(phoneNum),
+FOREIGN KEY (employeeId) REFERENCES Employee(employeeId)
 )ENGINE=InnoDB;
 
 
