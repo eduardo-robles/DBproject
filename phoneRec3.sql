@@ -60,11 +60,9 @@ lname VARCHAR(25) NOT NULL,
 address VARCHAR(50) NOT NULL,
 DivisionId INT(11),
 callsId INT(11),
--- phoneNum INT(15),
 PRIMARY KEY(CustomerId),
 FOREIGN KEY (DivisionId) REFERENCES Division(DivisionId),
 FOREIGN KEY (callsId) REFERENCES Calls(callsId)
--- FOREIGN KEY (phoneNum) REFERENCES Calls(phoneNum)
 )ENGINE=InnoDB;
 
 -- Create table PersonalContact
@@ -89,39 +87,83 @@ FOREIGN KEY (customerId) REFERENCES Customer(customerId)
 )ENGINE=InnoDB;
 
 
+-- INSERT TO DIVISION
+INSERT INTO Division (address)
+VALUES ('321 Some Street, Anywhere, USA');
+
+INSERT INTO Division (address)
+VALUES ('456 Street, Anywhere, USA');
+
+INSERT INTO Division (address)
+VALUES ('684 Some Street, TEXAS, USA');
+
+INSERT INTO Division (address)
+VALUES ('321 Some Ave., Delaware, USA');
+
+-- INSERT TO CALLS
+INSERT INTO Calls (phoneNum, startTime, endTime, price)
+VALUES ('956123456','900','915','5.00');
+
+INSERT INTO Calls (phoneNum, startTime, endTime, price)
+VALUES ('956123457','200','500','9.00');
+
+INSERT INTO Calls (phoneNum, startTime, endTime, price)
+VALUES ('956123458','100','216','3.00');
+
+INSERT INTO Calls (phoneNum, startTime, endTime, price)
+VALUES ('956123459','300','325','8.00');
+
+-- INSERT TO EMPLOYEE
+
+INSERT INTO Employee (fName, lName, title, email, phoneNumber, address)
+VALUES ('Grace', 'Hopper', 'General', 'gh@example.com', '956', '123 Any Street. Somewhere, USA');
+
+INSERT INTO Employee (fName, lName, title, email, phoneNumber, address)
+VALUES ('Mary', 'Shelley', 'Head Writer', 'ms@example.com', '454', '4876 Street. Somewhere, USA');
+
+INSERT INTO Employee (fName, lName, title, email, phoneNumber, address)
+VALUES ('Jane', 'Austen', 'Senior Editor', 'ja@example.com', '556', '45465 Any Ave. Somewhere, USA');
+ 
+INSERT INTO Employee (fName, lName, title, email, phoneNumber, address)
+VALUES ('Albert', 'Einstein', 'Physicist', 'ae@example.com', '986', '367 Street Bld. Somewhere, USA');
+ 
+
+-- INSERT TO CUSTOMER
+INSERT INTO Customer (fname, lname, address)
+VALUES ('Magaret', 'Hamilton', '123 Nasa Ln, Cape Canaveral, Florida USA');
+
+INSERT INTO Customer (fname, lname, address)
+VALUES ('Marie', 'Curie', '744 Xray Ave., Cape Canaveral, Florida USA');
+ 
+INSERT INTO Customer (fname, lname, address)
+VALUES ('Alan', 'Turing', '001 Enigma, Cape Canaveral, Florida USA');
+ 
+INSERT INTO Customer (fname, lname, address)
+VALUES ('Eric', 'Raymond', '345 Cathedral, Cape Canaveral, Florida USA');
 
 
--- Create table Customer
--- CREATE TABLE Customer (
--- CustomerId INT(11) NOT NULL AUTO_INCREMENT,
--- fname VARCHAR(25) NOT NULL,
--- lname VARCHAR(25) NOT NULL,
--- address VARCHAR(50) NOT NULL,
--- DivisionId INT(11),
--- phoneNum INT(15),
--- PRIMARY KEY(CustomerId),
--- FOREIGN KEY (DivisionId) REFERENCES Division(DivisionId),
--- FOREIGN KEY (phoneNum) REFERENCES Calls(phoneNum)
--- )ENGINE=InnoDB;
+-- INSERT TO PERSONALCONTACT
+INSERT INTO PersonalContact (fName, lName)
+VALUES ('Ada', 'Lovelace');
+ 
+INSERT INTO PersonalContact (fName, lName)
+VALUES ('Linus', 'Torvalds');
+ 
+INSERT INTO PersonalContact (fName, lName)
+VALUES ('Richard', 'Stallman');
 
--- Create table PersonalContact
--- CREATE TABLE PersonalContact (
--- PersonalId INT (11) NOT NULL AUTO_INCREMENT,
--- fname VARCHAR(25) NOT NULL,
--- lname VARCHAR(25) NOT NULL,
--- phoneNum INT(15),
--- PRIMARY KEY(PersonalId),
--- FOREIGN KEY (phoneNum) REFERENCES Calls(phoneNum)
--- )ENGINE=InnoDB;
+INSERT INTO PersonalContact (fName, lName)
+VALUES ('Donald', 'Chamberlin');
 
--- Create table Visits
--- CREATE TABLE Visits (
--- departureDate DATE NOT NULL,
--- returnDate  DATE NOT NULL,
--- employeeId INT(11),
--- customerId INT(11),
--- PRIMARY KEY(departureDate),
--- FOREIGN KEY (employeeId) REFERENCES Employee(employeeId),
--- FOREIGN KEY (customerId) REFERENCES Customer(customerId)
--- )ENGINE=InnoDB;
+-- INSERT TO VISITS
+INSERT INTO Visits (departureDate, returnDate)
+VALUES ('010115', '010515');
 
+INSERT INTO Visits (departureDate, returnDate)
+VALUES ('090515', '030115');
+
+INSERT INTO Visits (departureDate, returnDate)
+VALUES ('090415', '091015');
+
+INSERT INTO Visits (departureDate, returnDate)
+VALUES ('071015', '080115');
