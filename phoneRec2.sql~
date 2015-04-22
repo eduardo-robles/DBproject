@@ -57,9 +57,7 @@ title VARCHAR(20) NOT NULL,
 email VARCHAR(30) NOT NULL,
 phoneNum INT(15) NOT NULL,
 address VARCHAR(50) NOT NULL,
-DivisionId INT (11)
-PRIMARY KEY(employeeId),
-FOREIGN KEY (DivisionId) REFERENCES Division(DivisionId)
+PRIMARY KEY(employeeId)
 )ENGINE=InnoDB;
 
 
@@ -95,7 +93,7 @@ departureDate DATE NOT NULL,
 returnDate  DATE NOT NULL,
 employeeId INT(11),
 customerId INT(11),
-PRIMARY KEY(departureDate, employeeId),
+PRIMARY KEY(departureDate),
 FOREIGN KEY (employeeId) REFERENCES Employee(employeeId),
 FOREIGN KEY (customerId) REFERENCES Customer(customerId)
 )ENGINE=InnoDB;

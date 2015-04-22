@@ -92,17 +92,17 @@ VALUES ('684 Some Street, TEXAS, USA');
 INSERT INTO Division (address)
 VALUES ('321 Some Ave., Delaware, USA');
 
--- INSERT TO Calls
-INSERT INTO Calls (phoneNum)
+-- INSERT TO CONTACT
+INSERT INTO Contact (phoneNum)
 VALUES ('433');
 
-INSERT INTO Calls (phoneNum)
+INSERT INTO Contact (phoneNum)
 VALUES ('654');
 
-INSERT INTO Calls (phoneNum)
+INSERT INTO Contact (phoneNum)
 VALUES ('754');
 
-INSERT INTO Calls (phoneNum)
+INSERT INTO Contact (phoneNum)
 VALUES ('456');
 
 -- INSERT TO EMPLOYEE
