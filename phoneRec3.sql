@@ -129,31 +129,31 @@ VALUES ('Albert', 'Einstein', 'Physicist', 'ae@example.com', '986', '367 Street 
  
 
 -- INSERT TO CUSTOMER
-INSERT INTO Customer (fname, lname, address)
-VALUES ('Magaret', 'Hamilton', '123 Nasa Ln, Cape Canaveral, Florida USA');
+INSERT INTO Customer (fname, lname, address, callsId)
+VALUES ('Magaret', 'Hamilton', '123 Nasa Ln, Cape Canaveral, Florida USA', '1');
 
-INSERT INTO Customer (fname, lname, address)
-VALUES ('Marie', 'Curie', '744 Xray Ave., Cape Canaveral, Florida USA');
+INSERT INTO Customer (fname, lname, address, callsId)
+VALUES ('Marie', 'Curie', '744 Xray Ave., Cape Canaveral, Florida USA', '2');
  
-INSERT INTO Customer (fname, lname, address)
-VALUES ('Alan', 'Turing', '001 Enigma, Cape Canaveral, Florida USA');
+INSERT INTO Customer (fname, lname, address, callsId)
+VALUES ('Alan', 'Turing', '001 Enigma, Cape Canaveral, Florida USA', '3');
  
-INSERT INTO Customer (fname, lname, address)
-VALUES ('Eric', 'Raymond', '345 Cathedral, Cape Canaveral, Florida USA');
+INSERT INTO Customer (fname, lname, address, callsId)
+VALUES ('Eric', 'Raymond', '345 Cathedral, Cape Canaveral, Florida USA', '4');
 
 
 -- INSERT TO PERSONALCONTACT
-INSERT INTO PersonalContact (fName, lName)
-VALUES ('Ada', 'Lovelace');
+INSERT INTO PersonalContact (fName, lName, callsId)
+VALUES ('Ada', 'Lovelace', '1');
  
-INSERT INTO PersonalContact (fName, lName)
-VALUES ('Linus', 'Torvalds');
+INSERT INTO PersonalContact (fName, lName, callsId)
+VALUES ('Linus', 'Torvalds', '2');
  
-INSERT INTO PersonalContact (fName, lName)
-VALUES ('Richard', 'Stallman');
+INSERT INTO PersonalContact (fName, lName, callsId)
+VALUES ('Richard', 'Stallman', '3');
 
-INSERT INTO PersonalContact (fName, lName)
-VALUES ('Donald', 'Chamberlin');
+INSERT INTO PersonalContact (fName, lName, callsId)
+VALUES ('Donald', 'Chamberlin', '4');
 
 -- INSERT TO VISITS
 INSERT INTO Visits (departureDate, returnDate)
